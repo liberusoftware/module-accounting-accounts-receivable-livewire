@@ -14,9 +14,9 @@ it('covers accounting-accounts-receivable-livewire components', function (): voi
     $provider = $this->app->register(AccountsReceivableLivewireServiceProvider::class, force: true);
     $provider->boot();
 
-    expect(fn () => (new Aging)->mount())->toThrow(AuthorizationException::class);
-    expect(fn () => (new Receivables)->mount(1))->toThrow(AuthorizationException::class);
-    expect(fn () => (new Statement)->mount(1))->toThrow(AuthorizationException::class);
+    expect(fn () => (new Aging())->mount())->toThrow(AuthorizationException::class);
+    expect(fn () => (new Receivables())->mount(1))->toThrow(AuthorizationException::class);
+    expect(fn () => (new Statement())->mount(1))->toThrow(AuthorizationException::class);
 
     $this->actingAs(User::factory()->create());
 
